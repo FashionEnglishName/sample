@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class SessionsController extends Controller
 {
@@ -16,6 +17,18 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        return;
+        if(Auth::attempt($credentials,$request->has('remember'))){
+            session()->flash('success','欢迎回来！');
+            return redirect()->route('users.show',[Auth::user()]);
+        } else {
+            session()->flash('error',"用户名与密码不匹配！");
+            return redirect()->back();
+        }
+    }
+
+    public function destroy(){
+        Auth::logout();
+        session()->flash('success','您已退出');
+        return redirect()->route('login');
     }
 }

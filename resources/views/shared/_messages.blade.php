@@ -1,4 +1,4 @@
-@foreach (['danger', 'warning', 'success', 'info'] as $msg)
+@foreach (['error', 'warning', 'success', 'info'] as $msg)
     @if(session()->has($msg))
         <script>
             toastr.{{ $msg }}("{{ session()->get($msg) }}")
