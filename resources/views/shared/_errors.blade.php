@@ -1,9 +1,7 @@
 @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+            <script>
+                @foreach($errors->all() as $error)
+                    toastr.warning("{{ $error }}");
+                @endforeach
+            </script>
 @endif

@@ -3,6 +3,14 @@
 <head>
     <title>@yield('title', 'Sample App') - Laravel 入门教程</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/toastr.css">
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/toastr.js"></script>
+    <script>
+        toastr.options.positionClass = "toast-top-center";
+        toastr.options.timeout = 4000;
+        toastr.options.closeButton = true;
+    </script>
 </head>
 <body>
 @include('layouts._header')
